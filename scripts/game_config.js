@@ -18,6 +18,11 @@ var game_config = `
             "type": "text",
             "text": "隊伍編號",
             "default_value": ""
+        },
+        {
+            "id": "not_participated",
+            "type": "checkbox",
+            "text": "未上場比賽"
         }
     ],
     "auto": [
@@ -133,11 +138,6 @@ var game_config = `
             "id": "major_foul",
             "type": "checkbox",
             "text": "重大犯規(推倒、撞擊CAGE等)"
-        },
-        {
-            "id": "comments",
-            "type": "textarea",
-            "text": "其他評論或無法記錄的部分"
         }
     ],
     "result": [
@@ -166,6 +166,11 @@ var game_config = `
             "id": "brage_rp",
             "type": "checkbox",
             "text": "獲得Brage RP"
+        },
+        {
+            "id": "comments",
+            "type": "textarea",
+            "text": "其他評論或無法記錄的部分"
         }
     ],
     "final":[]

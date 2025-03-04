@@ -35,6 +35,10 @@
         if (!verify()) return;
         switch (current_page) {
           case "prematch":
+            if (document.getElementById("not_participated").checked) {
+              current_page = "final";
+              break;
+            }
             current_page = "auto";
             break;
           case "auto":
@@ -167,6 +171,9 @@
 
           case "final":
             document
+              .getElementById("prematch")
+              .setAttribute("style", "display: none;");
+            document
               .getElementById("auto")
               .setAttribute("style", "display: none;");
             document
@@ -242,6 +249,17 @@
 
       function copy_result() {
         var result = "";
+        if (document.getElementById("not_participated").checked) {
+          result += document.getElementById("scouter_name").value;
+          result += "\t";
+          result += document.getElementById("game_number").value;
+          result += "\t";
+          result += document.getElementById("team_number").value;
+          result += "\tTRUE";
+          navigator.clipboard.writeText(result);
+          alert("match result copied!");
+          return;
+        }
         for (const section in config) {
           for (const part in config[section]) {
             switch (config[section][part].type) {
